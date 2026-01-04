@@ -132,7 +132,7 @@ router.get("/ai-analysis", authMiddleware, async (req, res) => {
     else status = "Healthy";
 
     const analysisPrompt = `Based on the following wellness data for a college student:
-- Burnout Score: ${burnoutScore}/100 (Status: ${status})
+- Burnout Score: ${burnoutScore}/75 (Status: ${status})
 - Average Mood: ${avgMood.toFixed(1)}/5
 - Average Stress: ${avgStress.toFixed(1)}/5
 - Average Sleep: ${avgSleep.toFixed(1)} hours
