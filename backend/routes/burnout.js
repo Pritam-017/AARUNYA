@@ -38,7 +38,7 @@ router.get("/score", authMiddleware, async (req, res) => {
     }).sort({ date: -1 });
 
     if (checkins.length === 0) {
-      return res.json({ score: 100, status: "Healthy", trend: "stable" });
+      return res.json({ score: 75, status: "Healthy", trend: "stable" });
     }
 
     // Burnout score: (mood + (6-stress) + (sleep/2)) / 3 * 25
@@ -132,7 +132,7 @@ router.get("/ai-analysis", authMiddleware, async (req, res) => {
     else status = "Healthy";
 
     const analysisPrompt = `Based on the following wellness data for a college student:
-- Burnout Score: ${burnoutScore}/75 (Status: ${status})
+- Burnout Score: ${burnoutScore}/100 (Status: ${status})
 - Average Mood: ${avgMood.toFixed(1)}/5
 - Average Stress: ${avgStress.toFixed(1)}/5
 - Average Sleep: ${avgSleep.toFixed(1)} hours
