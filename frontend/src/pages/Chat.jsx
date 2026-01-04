@@ -61,12 +61,15 @@ export default function Chat() {
 
         // Try to setup Socket.io
         if (!socket) {
-          socket = io("http://localhost:5000", {
+          const SOCKET_URL = import.meta.env.VITE_API_URL.replace("/api", "");
+
+          socket = io(SOCKET_URL, {
+            transports: ["websocket"],
             reconnection: true,
             reconnectionDelay: 1000,
             reconnectionDelayMax: 5000,
             reconnectionAttempts: 5
-          });
+          }); 
         }
 
         // Join Socket.io room
